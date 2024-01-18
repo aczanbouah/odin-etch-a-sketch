@@ -10,7 +10,7 @@
     <h1 class="header">Etch-a-sketch</h1>
     <div class="grid-container"></div>
     <div class="slider-container">
-      <label for="grid-size">Grid size</label>
+      <label for="grid-size" id="grid-size-label">Grid size</label>
       <input
         type="range"
         id="slider"
@@ -19,6 +19,10 @@
         min="1"
         max="64"
       />
+    </div>
+    <div class="color-picker-container">
+      <label for="color-picker">Color picker</label>
+      <input type="color" name="color-picker" id="color-picker" />
     </div>
 
     <script src="script.js"></script>

@@ -3,6 +3,17 @@ const GRID_CONTAINER_WIDTH = 480;
 const gridSizeSlider = document.querySelector("#slider");
 const colorPicker = document.querySelector("#color-picker");
 const gridSizeLabel = document.querySelector("#grid-size-label");
+let allGridItems;
+const colorModeBtn = document.querySelector("#color-mode");
+const rainbowModeBtn = document.querySelector("#rainbow-mode");
+const eraserModeBtn = document.querySelector("#eraser-mode");
+const resetGridBtn = document.querySelector("#reset-grid");
+
+gridSizeSlider.addEventListener("mouseup", resetGrid);
+colorModeBtn.addEventListener("click", colorMode);
+rainbowModeBtn.addEventListener("click", rainbowMode);
+eraserModeBtn.addEventListener("click", eraserMode);
+resetGridBtn.addEventListener("click", resetGrid);
 
 function createGridItem() {
   const gridItem = document.createElement("div");
@@ -10,9 +21,6 @@ function createGridItem() {
   gridItem.style.width = `${GRID_CONTAINER_WIDTH / gridSizeSlider.value}px`;
   gridItem.style.height = `${GRID_CONTAINER_WIDTH / gridSizeSlider.value}px`;
   gridContainer.appendChild(gridItem);
-  gridItem.addEventListener("mouseover", function () {
-    gridItem.style.backgroundColor = `${colorPicker.value}`;
-  });
 }
 
 function createGrid() {
@@ -20,6 +28,8 @@ function createGrid() {
     createGridItem();
   }
   gridSizeLabel.innerText = `Grid size: ${gridSizeSlider.value} x ${gridSizeSlider.value}`;
+  allGridItems = document.querySelectorAll(".grid-item");
+  colorMode();
 }
 
 function resetGrid() {
@@ -29,6 +39,41 @@ function resetGrid() {
   createGrid();
 }
 
-createGrid();
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-gridSizeSlider.addEventListener("mouseup", resetGrid);
+function getRandomColor() {
+  return `rgb(${getRandomNumber(0, 255)}, ${getRandomNumber(
+    0,
+    255
+  )}, ${getRandomNumber(0, 255)})`;
+}
+
+function rainbowMode() {
+  allGridItems.forEach(function (element) {
+    element.addEventListener("mouseover", function (event) {
+      event.target.style.backgroundColor = getRandomColor();
+    });
+  });
+}
+
+function colorMode() {
+  allGridItems.forEach(function (element) {
+    element.addEventListener("mouseover", function (event) {
+      event.target.style.backgroundColor = `${colorPicker.value}`;
+    });
+  });
+}
+
+function eraserMode() {
+  allGridItems.forEach(function (element) {
+    element.addEventListener("mouseover", function (event) {
+      event.target.style.backgroundColor = `#fff`;
+    });
+  });
+}
+
+createGrid();

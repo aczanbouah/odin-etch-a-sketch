@@ -4,10 +4,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.container {
+.grid-container {
   height: 480px;
   width: 480px;
-  border: 2px solid black;
+  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
 }

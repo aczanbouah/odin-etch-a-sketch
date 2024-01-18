@@ -8,7 +8,19 @@
   </head>
   <body>
     <h1 class="header">Etch-a-sketch</h1>
-    <div class="container"></div>
+    <div class="grid-container"></div>
+    <div class="slider-container">
+      <label for="grid-size">Grid size</label>
+      <input
+        type="range"
+        id="slider"
+        name="grid-size"
+        value="32"
+        min="1"
+        max="64"
+      />
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

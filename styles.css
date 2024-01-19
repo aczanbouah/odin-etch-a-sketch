@@ -2,6 +2,15 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgb(146, 3, 255);
+  background: linear-gradient(
+    143deg,
+    rgba(146, 3, 255, 1) 0%,
+    rgba(224, 164, 86, 1) 53%,
+    rgba(250, 208, 162, 1) 100%
+  );
 }
 
 .grid-container {
@@ -9,9 +18,66 @@ body {
   width: 480px;
   display: flex;
   flex-wrap: wrap;
+  background-color: #fff;
 }
 
 .grid-item {
   box-sizing: border-box;
   border: 1px solid black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 15px 15px 17px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background: rgb(112, 95, 238);
+  background: linear-gradient(
+    321deg,
+    rgba(112, 95, 238, 1) 0%,
+    rgba(114, 30, 249, 1) 0%,
+    rgba(250, 208, 162, 1) 100%
+  );
+  border-radius: 15px;
+  padding: 18px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-container,
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-container > button {
+  font-size: 14px;
+  color: #fff;
+  background-color: #0946c9;
+  padding: 10px 30px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+.btn-container > button:hover {
+  transition: 250ms;
+  background-color: rgb(227 183 253);
+  color: #000;
+  border: solid 1px #0066cc;
 }

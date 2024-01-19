@@ -8,6 +8,9 @@ const colorModeBtn = document.querySelector("#color-mode");
 const rainbowModeBtn = document.querySelector("#rainbow-mode");
 const eraserModeBtn = document.querySelector("#eraser-mode");
 const resetGridBtn = document.querySelector("#reset-grid");
+const activeMode = document.createElement("p");
+const colorPickerContainer = document.querySelector(".color-picker-container");
+colorPickerContainer.appendChild(activeMode);
 
 gridSizeSlider.addEventListener("mouseup", resetGrid);
 colorModeBtn.addEventListener("click", colorMode);
@@ -58,6 +61,7 @@ function rainbowMode() {
       event.target.style.backgroundColor = getRandomColor();
     });
   });
+  activeMode.innerText = "Active mode: rainbow mode";
 }
 
 function colorMode() {
@@ -66,6 +70,7 @@ function colorMode() {
       event.target.style.backgroundColor = `${colorPicker.value}`;
     });
   });
+  activeMode.innerText = "Active mode: color mode";
 }
 
 function eraserMode() {
@@ -74,6 +79,7 @@ function eraserMode() {
       event.target.style.backgroundColor = `#fff`;
     });
   });
+  activeMode.innerText = "Active mode: eraser mode";
 }
 
 createGrid();
